@@ -7,7 +7,7 @@ setuptools.setup(
     name="pytipeee", 
     version="0.0.1",
     author="Carlo Alberto Carrucciu",
-    author_email="carloalbertocarrucciu@outlook.it",
+    author_email="carrucciu.ca@gmail.com",
     description="Python scraper for tipeee",
     long_description=long_description,
     long_description_content_type="text/markdown",

@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: pytipeee
+Version: 0.0.1
+Summary: Python scraper for tipeee
+Home-page: https://github.com/alberts96/pytipeee
+Author: Carlo Alberto Carrucciu
+Author-email: carloalbertocarrucciu@outlook.it
+License: UNKNOWN
+Project-URL: Bug Tracker, https://github.com/alberts96/pytipeee/issues
+Description: # pytipeee
+        Python scraper for tipeee
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
