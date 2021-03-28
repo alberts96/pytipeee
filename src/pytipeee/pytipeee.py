@@ -47,8 +47,42 @@ def requesting(url, headers = superheaders):
 
 
 
-"""================================================================CREATOR================================================================"""
+class Comment:
+    
+    def __init__(self,comment):
+        self.id = comment['id']
+        self.time = comment['created_at']
+        self.author = comment['author']['username']
+        self.author_id = comment['author']['id']
+        def __cleanComment(text):
+            import re 
+            return re.sub('\n',' ',text)
+        self.text = comment['body']
+        
+    def __repr__(self):
+        
+        return '\n ' + '\033[1m' + self.author+ '\033[0m' + '\n_____________________________________\n' + self.text + '\n'
+   
 
+
+class Tipper:
+    
+    def __init__(self, username):
+        self.username = username
+        self.tips = list()
+    def __repr__(self):
+        return self.username
+    
+    def get_tips(self):
+        self.tips = list()
+        data = requesting("https://api.tipeee.com/v2.0/users/{}".format(self.username))
+        for subscription in data['activeSubscriptions'].keys:
+            self.tips.append(data['activeSubscriptions'][subscription]['slug'])
+        return self.tips
+            
+        
+        
+        
 class Creator:
     
     
@@ -70,6 +104,10 @@ class Creator:
         self.newsNumber =   self.data['parameters']['newsNumber']
         self.subscription =  self.data['parameters']['activateAt']
         self.categories = set(category['slug'] for category in self.data['categories'])
+        self.comments = list()
+        self.goals = list()
+        self.news = list()
+        self.tippers = list()
         
         if self.scraped == True:
             self.num_comments = int(self.data['thread']['num_comments'])
@@ -106,18 +144,65 @@ class Creator:
         }
     
     
-   
-        
+    def get_comments(self):
+        self.comments = list()
+        page = '1'
+        while True:
+            data = requesting("https://api.tipeee.com/v2.0/threads/project_{}?page={}&perPage=150".format(self.id,page))
+            for item in data['items'] : 
+                self.comments.append(Comment(item))
+            try: page = data['pager']['next']
+            except: break
+        return self.comments
+                
+    
+    def get_news(self):
+        self.news = list()
+        page = '1'
+        while True:
+            data = requesting("https://api.tipeee.com/v2.0/projects/{}/news?page={}&perPage=150".format(self.username,page))
+            for item in data['items'] : 
+                self.news.append(item['name'])
+            try: page = data['pager']['next']
+            except: break
+        return self.news
+    
+    
+    def get_tippers(self):
+        self.tippers = list()
+        page='1'
+        while True:
+            data = requesting("https://api.tipeee.com/v2.0/projects/{}/top/tippers?page={}&perPage=150".format(self.username,page))
+            for item in data['items'] : 
+                try: self.tippers.append(Tipper(item['username_canonical']))
+                except: continue
+            try: page = data['pager']['next']
+            except: break
+        return self.tippers
+            
+    
     def __repr__(self): return str(self.to_dict())
-    
-    
 
+     
+    def __gt__(self, anotherCreator):
+        assert(type(anotherCreator) == type(self))
+        if self.tipperNumber > anotherCreator.tipperNumber : return True
+        else : return False 
+        
+    def __lt__(self, anotherCreator):
+        assert(type(anotherCreator) == type(self))
+        if self.tipperNumber < anotherCreator.tipperNumber : return True
+        else : return False 
+        
+    def __eq__(self, anotherAuthor):
+        assert(type(anotherCreator) == type(self))
+        if self.username == anotherCreator.username : return True
+        else: return False
+        
+        
+        
+        
     
-    
-    
-    
-
-"""================================================================CREATORS================================================================"""
 
 class Creators:
     
@@ -125,11 +210,15 @@ class Creators:
         self.lang = lang
         self.scraped =   list()
         self.creators = list()
+       
         
     def __iter__(self):
         for elem in self.creators: 
             yield elem['slug']
             
+    def __len__(self):
+        return len(self.creators)
+    
     def __repr__(self):
         return str(self.creators)
         
@@ -189,6 +278,8 @@ class Creators:
                 except: 
                     print(item)
                     break
+                    
+   
     
     
     def to_dataframe(self, lang=None):
@@ -210,3 +301,4 @@ class Creators:
         
         return df
         
+    
