@@ -14,7 +14,7 @@ Thanks to ``Pytipeee`` you are able to:
 To install you can use pip by terminal:
 ```bash
 
-pip install cdlib
+pip install pytipeee
 ```
 
 ## Usage
