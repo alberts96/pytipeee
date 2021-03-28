@@ -5,9 +5,9 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="pytipeee", 
-    version="0.0.1",
+    version="1.1.2",
     author="Carlo Alberto Carrucciu",
-    author_email="carrucciu.ca@gmail.com",
+    author_email="carloalbertocarrucciu@outlook.it",
     description="Python scraper for tipeee",
     long_description=long_description,
     long_description_content_type="text/markdown",

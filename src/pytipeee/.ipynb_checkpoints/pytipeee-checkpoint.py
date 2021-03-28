@@ -66,7 +66,9 @@ class Comment:
 
 
 class Tipper:
-    
+    '''
+    Subscribed common user of tipeee
+    '''
     def __init__(self, username):
         self.username = username
         self.tips = list()
@@ -74,6 +76,9 @@ class Tipper:
         return self.username
     
     def get_tips(self):
+        '''
+        See all tips fro this user
+        '''
         self.tips = list()
         data = requesting("https://api.tipeee.com/v2.0/users/{}".format(self.username))
         for subscription in data['activeSubscriptions'].keys:
@@ -119,14 +124,23 @@ class Creator:
             self.num_comments = None
             
     def more_info(self): 
+        ''' 
+        scrape the creators own web page
+        '''
         self = self.__init__(self.username)
         
         
     def visit(self):
+        '''
+        Open the creator tipeee own web page 
+        '''
         import webbrowser
         webbrowser.open_new("https://en.tipeee.com/{}/".format(self.username))
         
     def to_dict(self):
+        '''
+        Create a dictionary with main information for the creator
+        '''
         return {
             "id" : self.id,
             "username" : self.username ,
@@ -145,6 +159,9 @@ class Creator:
     
     
     def get_comments(self):
+        ''' 
+        Return a list with all comments
+        '''
         self.comments = list()
         page = '1'
         while True:
@@ -157,6 +174,9 @@ class Creator:
                 
     
     def get_news(self):
+        '''
+        Return a list with all news/works names updated by an author
+        '''
         self.news = list()
         page = '1'
         while True:
@@ -169,6 +189,10 @@ class Creator:
     
     
     def get_tippers(self):
+        '''
+        Return all subscribed tippers of the creator 
+        N.B. A lot of tippers are anonimous, not subscribed to tipeee
+        '''
         self.tippers = list()
         page='1'
         while True:
@@ -271,6 +295,12 @@ class Creators:
     
     
     def get_creators(self):
+        ''' 
+        paramether:
+        ____________
+        Trasform each scraped item in an element of class Crator, so you can call methods on it
+        
+        '''
         if len(self.scraped) > 0 :
             for item in self.scraped:
                 try :

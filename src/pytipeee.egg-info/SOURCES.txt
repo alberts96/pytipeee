@@ -3,7 +3,6 @@ pyproject.toml
 setup.cfg
 setup.py
 src/pytipeee/__init__.py
-src/pytipeee/pytipeee-Copy1.py
 src/pytipeee/pytipeee.py
 src/pytipeee.egg-info/PKG-INFO
 src/pytipeee.egg-info/SOURCES.txt
