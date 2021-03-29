@@ -436,7 +436,7 @@ rm.to_dict()
 
 
 ## LICENSE
-Copyright (c) [2021] [Carlo Alberto Carrucciu]
+Copyright (c) 2021 Carlo Alberto Carrucciu
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
