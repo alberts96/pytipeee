@@ -75,16 +75,6 @@ df.head()
 
 
 <div>
-
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -201,14 +191,6 @@ df.head()
 
 <div>
 
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
     
 <table border="1" class="dataframe">
   <thead>
