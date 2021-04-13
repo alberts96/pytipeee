@@ -75,10 +75,6 @@ df.head()
 
 
 <div>
-<<<<<<< HEAD
-
-=======
->>>>>>> 8c554eb2069bf6b5a1c8f768ea7466ebf1060d5a
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -195,10 +191,6 @@ df.head()
 
 <div>
 
-<<<<<<< HEAD
-=======
-    
->>>>>>> 8c554eb2069bf6b5a1c8f768ea7466ebf1060d5a
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
