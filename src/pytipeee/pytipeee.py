@@ -75,15 +75,16 @@ class Tipper:
     def __repr__(self):
         return self.username
     
-    def get_tips(self):
+    #def get_tips(self):
         '''
-        See all tips fro this user
+        #See all tips for this user
         '''
-        self.tips = list()
-        data = requesting("https://api.tipeee.com/v2.0/users/{}".format(self.username))
-        for subscription in data['activeSubscriptions'].keys:
-            self.tips.append(data['activeSubscriptions'][subscription]['slug'])
-        return self.tips
+        #self.tips = list()
+        #data = requesting("https://api.tipeee.com/v2.0/users/{}".format(self.username))
+        #for subscription in data['activeSubscriptions'].keys:
+        #    self.tips.append(data['activeSubscriptions'][subscription]['slug'])
+        #return self.tips
+      
             
         
         
@@ -291,6 +292,7 @@ class Creators:
         if len(creators_list) >  limit : creators_list = creators_list[:limit]
         
         self.scraped = creators_list
+        self.get_creators()
         return creators_list
     
     

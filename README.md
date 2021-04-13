@@ -14,7 +14,7 @@ Thanks to ``Pytipeee`` you are able to:
 To install you can use pip by terminal:
 ```bash
 
-pip install cdlib
+pip install pytipeee
 ```
 
 ## Usage
@@ -66,7 +66,7 @@ by default the class ``Creators`` collect all creator of all categories.
 ```python
 creators = pt.Creators()          #Initialize the class
 creators.scrape(100,'vlog')       #scrape the site using a limit of creatros to collect ans a category 
-creators.get_creators()           #transform each scraped in a Creator element
+                                  #transform each scraped in a Creator element
 df = creators.to_dataframe()      #return a pandas dataframe
 df.head()
 ```
@@ -75,19 +75,7 @@ df.head()
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
 
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -203,19 +191,7 @@ df.head()
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
 
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -328,27 +304,27 @@ for comment in creator.get_comments()[:5]: print(comment)
 ```
 
     
-     [1mvictoria-9[0m
+     1mvictoria-9
     _____________________________________
     Merci Laeticia!
     
     
-     [1mteddy-11[0m
+     1mteddy-11
     _____________________________________
     ❤️❤️ merci pour tes vidéos et courage à toi et aux brésiliens pour ces temps difficiles
     
     
-     [1mstephanie-henrionn[0m
+     1mstephanie-henrionn
     _____________________________________
     Merci d'avoir organisé cette collecte et surtout de monter tout en haut de Rocinha pour distribuer de quoi manger à ceux et celles qui en ont le plus besoin. Merci et bravo
     
     
-     [1mcyn-3[0m
+     1mcyn-3
     _____________________________________
     J’envoie mon aide et tout mon amour au Brésil
     
     
-     [1msarah-226[0m
+     1msarah-226
     _____________________________________
     Un petit geste pour moi, qui fait la différence pour ces familles brésiliennes.... Avec beaucoup d`amour
     
@@ -442,7 +418,7 @@ rm.to_dict()
 
 
 ## LICENSE
-Copyright (c) [2021] [Carlo Alberto Carrucciu]
+Copyright (c) 2021 Carlo Alberto Carrucciu
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
